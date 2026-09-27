@@ -1,96 +1,206 @@
+/* ==========================================================================
+   1. PALETTE DE COULEURS & VARIABLES GLOBALES
+   ========================================================================== */
+:root {
+    --primary-color: #1a365d;    /* Bleu profond industriel */
+    --secondary-color: #2b6cb0;  /* Bleu acier pour les accents et boutons */
+    --accent-color: #e2e8f0;     /* Gris clair pour les fonds et bordures */
+    --text-dark: #2d3748;        /* Gris foncé pour une lecture confortable */
+    --text-light: #ffffff;       /* Blanc */
+    --bg-light: #f7fafc;         /* Blanc cassé pour le fond général */
+}
+
+/* ==========================================================================
+   2. RÉINITIALISATION ET DIMENSIONNEMENT DES BOÎTES
+   ========================================================================== */
+/* 
+   EXPLICATION DU CHOIX DE DIMENSIONNEMENT DES BOÎTES (box-sizing) :
+   Nous appliquons 'border-box' à l'ensemble des éléments (*, *::before, *::after).
+   Ce modèle inclut le padding (remplissage interne) et les bordures dans la largeur (width) 
+   et la hauteur (height) totales définies. Cela évite que les éléments ne débordent de leur conteneur
+   et garantit des calculs de mise en page prévisibles et fiables.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f4f4f4;
-            color: #222;
-        }
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+    padding: 20px;
+}
 
-        .contact-section {
-            max-width: 900px;
-            margin: 60px auto;
-            padding: 30px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-        }
+/* ==========================================================================
+   3. TYPOGRAPHIE (Titres, balises personnalisées et paragraphes)
+   ========================================================================== */
+/* Sélecteurs de type / balise : body, h, p, pT, etc. */
+h, h3 {
+    display: block;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.35rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.5px;
+}
 
-        .contact-section h2 {
-            margin-bottom: 20px;
-            font-size: 2rem;
-            color: #111;
-        }
+p {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 30px;
-        }
+pT {
+    display: block;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-top: 0.8rem;
+    margin-bottom: 0.4rem;
+}
 
-        .contact-info {
-            background: #111;
-            color: #fff;
-            padding: 25px;
-            border-radius: 12px;
-        }
+ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.2rem;
+}
 
-        .contact-info h3 {
-            margin-top: 0;
-            font-size: 1.5rem;
-        }
+li {
+    margin-bottom: 0.35rem;
+}
 
-        .contact-info p,
-        .contact-info a {
-            color: #d9d9d9;
-            line-height: 1.8;
-            text-decoration: none;
-        }
+/* ==========================================================================
+   4. NAVIGATION (Liens sur une ligne horizontale avec espacement)
+   ========================================================================== */
+/* Sélecteur de classe : .navbar */
+.navbar ul {
+    list-style: none;
+    display: flex;             /* Aligne les éléments sur une seule ligne */
+    flex-direction: row;
+    gap: 20px;                 /* Espace propre entre chaque lien */
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    border-radius: 6px;
+    margin: 15px 0;
+}
 
-        .contact-form {
-            display: grid;
-            gap: 18px;
-        }
+.navbar li a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 600;
+    padding: 6px 10px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
 
-        .form-group {
-            display: grid;
-            gap: 8px;
-        }
+.navbar li a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
 
-        .form-group label {
-            font-weight: bold;
-        }
+/* ==========================================================================
+   5. ESPACEMENT ET BORDURE DE SECTION
+   ========================================================================== */
+/* Sélecteur d'identifiant (ID) : #work */
+#work {
+    background-color: #ffffff;
+    border: 2px solid var(--secondary-color); /* Bordure distincte */
+    border-radius: 8px;
+    padding: 24px;                            /* Remplissage interne */
+    margin: 25px 0;                           /* Espacement externe */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 14px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1rem;
-            box-sizing: border-box;
-        }
+/* Espacement pour les autres sections */
+#about {
+    padding: 15px 0;
+    margin-bottom: 20px;
+}
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
+/* ==========================================================================
+   6. SECTION CONTACT & FORMULAIRE
+   ========================================================================== */
+/* Sélecteur de classe : .contact-section */
+.contact-section {
+    background-color: #ffffff;
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 24px;
+    margin-top: 25px;
+}
 
-        .btn-submit {
-            background: #111;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 14px 20px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 15px;
+}
 
-        .btn-submit:hover {
-            background: #333;
-        }
+.contact-info,
+.contact-form {
+    flex: 1;
+    min-width: 280px;
+}
 
-        @media (max-width: 700px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Bouton stylisé avec cohérence de couleur */
+.btn-submit {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 10px 22px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--primary-color);
+}
+
+/* ==========================================================================
+   7. PIED DE PAGE (FOOTER)
+   ========================================================================== */
+footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--accent-color);
+    text-align: center;
+    color: #718096;
+}
+
+footer nav a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin: 0 10px;
+}
